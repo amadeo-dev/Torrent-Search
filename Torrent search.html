@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+    <title>Torrent Search</title>
+    <link rel="stylesheet" href="to.css">
+</head>
+<body>
+    <div class="titre1" >
+        <p class="torrent">
+            <span data-text="T">T</span>
+            <span data-text="O">O</span>
+            <span data-text="R">R</span>
+            <span data-text="R">R</span>
+            <span data-text="E">E</span>
+            <span data-text="N">N</span>
+            <span data-text="T">T</span>
+        </p>
+    </div>
+    <div class="titre2">
+        <p class="search">
+            <span data-text="S">S</span>
+            <span data-text="E">E</span>
+            <span data-text="A">A</span>
+            <span data-text="R">R</span>
+            <span data-text="C">C</span>
+            <span data-text="H">H</span>
+        </p>
+    </div>
+    
+    <div class="container">
+        <form class="search-bar">
+            <input type="text" name="search" id="search" size="40" placeholder="Type a torrent to search.">
+            <button type="submit" name="text" onclick="tosearch()"><img src="loupe.png"></button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+<script>
+    tosearch = function() {
+        var search = escape(document.getElementById('search').value);
+        document.write("");
+        if(search == "") {alert('Type a torrent to search.');return false;}
+        if (search != null) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myObj = JSON.parse(this.responseText);
+                    for (x in myObj.items) {
+                        document.write('<font color="red">'+ myObj.items[x].title +'</b><br>');
+                        document.write('<a href="'+ myObj.items[x].link +'" target="_blank">'+ myObj.items[x].link +'</a><br><br>');}
+                        document.write('</div></td></tr></table></center></html>');}
+                    };
+    xmlhttp.open("GET", "https://www.googleapis.com/customsearch/v1?key=AIzaSyBeQ3HIebcEnEzfdMEGzNWEsAytHTKAioo&cx=007669213920302805361:9zpgevguesi&q="+search+"&alt=json", true);
+    xmlhttp.send();
+    }
+    }
+</script>
+
+
+

@@ -1,0 +1,133 @@
+p {
+    color: #fff;
+    font-family: Avenir Next, Helvetica Neue, Helvetica, Tahoma, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+  }
+  p span {
+    display: inline-block;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500;
+    -webkit-font-smoothing: antialiased;
+  }
+  p span::before,
+  p span::after {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    transform-origin: left top;
+    transition: all ease-out 0.3s;
+    content: attr(data-text);
+  }
+  p span::before {
+    z-index: 1;
+    color: rgba(0,0,0,0.2);
+    transform: scale(1.1, 1) skew(0deg, 20deg);
+  }
+  p span::after {
+    z-index: 2;
+    color: #684da3;
+    text-shadow: -1px 0 1px #684da3, 1px 0 1px rgba(0,0,0,0.8);
+    transform: rotateY(-40deg);
+  }
+  p span:hover::before {
+    transform: scale(1.1, 1) skew(0deg, 5deg);
+  }
+  p span:hover::after {
+    transform: rotateY(-10deg);
+  }
+  p span + span {
+    margin-left: 0.3em;
+  }
+  @media (min-width: 20em) {
+    p {
+      font-size: 2em;
+    }
+    p span::before,
+    p span::after {
+      display: block;
+    }
+  }
+  @media (min-width: 30em) {
+    p {
+      font-size: 3em;
+    }
+  }
+  @media (min-width: 40em) {
+    p {
+      font-size: 5em;
+    }
+  }
+  @media (min-width: 60em) {
+    p {
+      font-size: 8em;
+    }
+  }
+
+body {
+    background-color: rgb(22,43,48);
+  }
+
+
+.titre1{
+    order: 1;
+    flex: 1 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+}
+
+.titre2{
+    order: 2;
+    flex: 1 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+}
+
+.container{
+  width: 100%;
+    
+}
+
+.search-bar{
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:60px;
+    padding: 10px 20px;
+    }
+
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 20px;
+    font-size: 20px;
+    color: #cac7ff;
+}
+
+.search-bar button img{
+    width: 25px;
+}
+
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: #58629b;
+    cursor: pointer;
+}
